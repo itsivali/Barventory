@@ -87,6 +87,10 @@ python cli.py sale --item_id=1 --quantity=5 --selling_price=35.0
 ```bash 
 python cli.py search --keyword="Vodka"
 ```
+#### Running an example script to add item
+```bash 
+python example.py
+```
 #### Backup the database
 ```bash
 python cli.py backup --backup_path="backup.db"

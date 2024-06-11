@@ -1,7 +1,25 @@
-from barventory import add_item, view_inventory
+class Item:
+    def __init__(self, name, category, quantity, price):
+        self.name = name
+        self.category = category
+        self.quantity = quantity
+        self.price = price
 
-# Add a new item
-add_item(name='Whiskey', category='Spirits', quantity=50, price=25.0)
+class Inventory:
+    def __init__(self):
+        self.items = []
 
-# View inventory
-view_inventory()
+    def add_item(self, name, category, quantity, price):
+        item = Item(name, category, quantity, price)
+        self.items.append(item)
+
+    def view_inventory(self):
+        print("Inventory:")
+        for item in self.items:
+            print(f"Name: {item.name}, Category: {item.category}, Quantity: {item.quantity}, Price: ${item.price:.2f}")
+
+# Sample usage
+if __name__ == "__main__":
+    inventory = Inventory()
+    inventory.add_item("Whiskey", "Spirits", 50, 25.0)
+    inventory.view_inventory()
