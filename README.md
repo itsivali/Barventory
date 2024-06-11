@@ -69,6 +69,36 @@ Barventory is a command-line interface (CLI) application designed to manage inve
 
 #### Add a new item
  ```bash
-    python cli.py add --name="Vodka" --category="Spirits" --quantity=20 --price=30.0
-
+     python cli.py add --name="Vodka" --category="Spirits" --quantity=20 --price=30.00 
+```
 #### View inventory
+```bash
+python cli.py view
+```
+#### Record a purchase
+```bash
+python cli.py purchase --item_id=1 --quantity=10 --purchase_price=25.00
+```
+#### Record a sale
+```bash
+python cli.py sale --item_id=1 --quantity=5 --selling_price=35.0
+```
+#### Search for items
+```bash 
+python cli.py search --keyword="Vodka"
+```
+#### Backup the database
+```bash
+python cli.py backup --backup_path="backup.db"
+```
+#### Restore the database
+```bash
+python cli.py restore --backup_path="backup.db"
+```
+## Contributing
+Contributions are welcome! Please feel free to submit issues, feature or pull requests.
+
+## License
+
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT). See the [LICENSE](https://opensource.org/licenses/MIT) file for details.
+
