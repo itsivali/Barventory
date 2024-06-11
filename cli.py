@@ -8,7 +8,7 @@ from database import setup_database
 
 @click.group()
 def cli():
-    """Barventory CLI application."""
+    """🍺 Barventory - Command Line Inventory Management for Bars"""
     pass
 
 @cli.command()
