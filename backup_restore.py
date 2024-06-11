@@ -1,17 +1,19 @@
-from database import connect_db
+import sqlite3
+import shutil
+from utils import handle_error
 
 def backup_data(backup_path):
-    conn = connect_db()
-    with open(backup_path, 'w') as f:
-        for line in conn.iterdump():
-            f.write('%s\n' % line)
-    conn.close()
+    try:
+        # Copy the database file to the backup path
+        shutil.copy('barventory.db', backup_path)
+        print(f"Database backup successfully created at {backup_path}.")
+    except Exception as e:
+        handle_error(e)
 
 def restore_data(backup_path):
-    conn = connect_db()
-    c = conn.cursor()
-    with open(backup_path, 'r') as f:
-        sql = f.read()
-        c.executescript(sql)
-    conn.commit()
-    conn.close()
+    try:
+        # Copy the backup file to the database path
+        shutil.copy(backup_path, 'barventory.db')
+        print(f"Database successfully restored from {backup_path}.")
+    except Exception as e:
+        handle_error(e)
